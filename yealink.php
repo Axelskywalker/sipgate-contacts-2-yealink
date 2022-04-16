@@ -4,8 +4,8 @@
 #https://www.yeabook.de
 #Email:support@yeabook.de
 
-$sipgate_token_id = "Hier Token-ID eintragen";#YOUR_SIPGATE_ID
-$sipgate_token = "Hier Token eintragen";#YOUR_SIPGATE_TOKEN
+$sipgate_token_id = "Token-ID";#YOUR_SIPGATE_ID
+$sipgate_token = "Token";#YOUR_SIPGATE_TOKEN
 $token =  base64_encode($sipgate_token_id.':'.$sipgate_token);
 
 $url = "https://api.sipgate.com/v2/contacts";
