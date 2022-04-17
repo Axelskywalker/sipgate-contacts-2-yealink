@@ -29,19 +29,19 @@ curl_close($curl);
 
 $sip_j_array = json_decode($response, true);
 $items = $sip_j_array['items'];
-echo "<YealinkIPPhoneDirectory>";
+echo '<?xml version="1.0" encoding="UTF-8"?>';
+echo '<YealinkIPPhoneDirectory>';
     foreach ($items as $item) {
         $name = $item['name'];
-    echo"<DirectoryEntry>";
-    echo "<Name>$name</Name>";
-
-    $tel_numb = 0;
-    for ($i = 1; $i <= count($item['numbers']); $i++) {
-        $number = $item['numbers'][$tel_numb]['number'];
-    echo "<Telephone>".str_replace('+49', '0', $number)."</Telephone>";
-    $tel_numb++;
+        echo '<DirectoryEntry>';
+        echo '<Name>'.$name.'</Name>';
+        $tel_numb = 0;
+        for ($i = 1; $i <= count($item['numbers']); $i++) {
+            $number = $item['numbers'][$tel_numb]['number'];
+            echo '<Telephone>'.str_replace('+49', '0', $number).'</Telephone>';
+            $tel_numb++;
+        }
+    echo '</DirectoryEntry>';
     }
-    echo "</DirectoryEntry>";
-    }
-echo "</YealinkIPPhoneDirectory>";
+echo '</YealinkIPPhoneDirectory>';
 ?>
